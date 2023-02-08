@@ -1,0 +1,31 @@
+<p>🎈</p>
+
+<script>
+  // Your code here
+  let p = document.querySelector('p');
+  let size;
+  
+  function setSize(givenSize){
+  	size = givenSize;
+    p.style.fontSize = size + 'px';
+  }
+  setSize(20);
+  
+  function handleFunction(event){
+  	if(event.key == 'ArrowUp'){
+    	if(size>70){
+        	p.textContent = '💥'
+          document.body.removeEventListener('keydown', handleFunction);
+        } else {
+        	setSize(size * 1.1);
+          	event.preventDefault();
+        }
+    }
+    else if(event.key == 'ArrowDown'){
+    	setSize(size * 0.9);
+      	event.preventDefault();
+    }
+  }
+  
+  document.body.addEventListener('keydown', handleFunction);
+</script>
